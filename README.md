@@ -123,15 +123,15 @@ archetype-resources/
 	|   `-- java/
 	|       `-- App.java
 	`-- test/
-		`-- java/
-			`-- AppTest.java
+        `-- java/
+            `-- AppTest.java
 ```
 Now this template is special because we can access parameters such as the groupId, attributeId, package, etc... that we will provide to the archetype when we will use it.  
 To access this properties use a dollar and curly braces:
 ```sh
 ${attributeId}
 ```
-If filtered is set to true this parameters are accessible to all files (java, xml, etc). If filtered is false only the pom.xml will have access to this properties.
+If filtered is set to true this parameters are accessible to all files (java, xml, etc). If filtered is false only the *pom.xml* will have access to this properties.
 ## Template pom.xml
 Now, addressing the [elephant in the room](https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/gradle/gradle-plain.svg), you will need to customise this pom.xml as you like.  
 [My example](src/main/resources/archetype-resources/pom.xml) has the very much needed JUnit dependency and the core maven plugins. The only added plugin is the JaCoCo one.  
@@ -155,13 +155,13 @@ A very basic example could look like this:
 ```
 
 ## Building/Packaging the archetype
-This is definetly the easyest part of the process. To create a .jar out of your archetype, just open a terminal in the root directory (where our original pom.xml is) and run the command:
+This is definetly the easyest part of the process. To create a *.jar* out of your archetype, just open a terminal in the root directory (where our original *pom.xml* is) and run the command:
 ```sh
 mvn install
 ```
 
 ## Create a project using the new Archetype
-Now I will illustrate how to create a new project using directly maven. Afaik VSCode should automatically aknowledge the new archetype.
+Now I will illustrate how to create a new project using directly maven. Afaik *VSCode* should automatically aknowledge the new archetype.
 
 To create a new project with the archetype use the following command:
 ```sh
@@ -172,5 +172,5 @@ mvn archetype:generate                                    \
 	-DgroupId=<my.groupid>                                \
 	-DartifactId=<my-artifactId>
 ```
-Where \<archetype-groupId>, \<archetype-artifactId> and \<archetype-version> are the parameters specified in the archetype pom.xml.  
-While \<my.groupid> is the package name (ie: edu.poniperro), and \<my-artifactId> is the project name.
+Where **\<archetype-groupId>**, **\<archetype-artifactId>** and **\<archetype-version>** are the parameters specified in the *archetype pom.xml*.  
+While **\<my.groupid>** is the package name (ie: edu.poniperro), and **\<my-artifactId>** is the project name.
