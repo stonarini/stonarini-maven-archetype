@@ -31,7 +31,8 @@ Let's brake it down:
 
 ## archetype pom.xml
 We start with the root directory *archetype*; In here we have to create a basic maven structure with a *pom.xml* and a *src/* directory with a *main/* subdirectory.  
-Now, instead of having a *java/* directory like a normal project, we have to create a directory called *resources/*. Our directory structure should look like this:
+Now, instead of having a *java/* directory like a normal proyect, we have to create a directory called *resources/*.  
+Our directory structure should look like this:
 ```
 archetype/
 |-- pom.xml
@@ -46,7 +47,7 @@ archetype/
 |-- pom.xml
 `-- src/main/resources/META-INF/maven/archetype-metadata.xml
 ```
-And an xml file called *archetype-metadata.xml* that contains the information about what directory structure we want the archetype to automatically create.  
+We should also create a xml file called *archetype-metadata.xml*.This file contains the information about what directory structure we want the archetype to automatically create.  
 ```xml
 <archetype-descriptor xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" 
 					  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -72,27 +73,22 @@ And an xml file called *archetype-metadata.xml* that contains the information ab
 In this file we need to change the *name* attribute so that is the same as the *attributeId* in our *pom.xml*. Then, in the *fileSets* tag we need to specify the "raw" directory structure. In my case, I specified a simple maven structure with main and test.  
 
 The ```packaged``` attribute is needed if you want the directories of your *groupId* to be created:
-
 ```yaml
 groupId: edu.poniperro
 ```
-
 ```toml
 packaged="false"
 # src/
 # |-- main/java/
 # `-- test/java/
 ```
-
 ```toml
 packaged="true"
 # src/
 # |-- main/java/edu/poniperro
 # `-- test/java/edu/poniperro
 ```
-
 While the ```filtered``` attribute is needed if you want to access the project's parameters inside a file, pay attention to the *${package}*:
-
 ```java
 // filtered="false" (default)
 package ${package};
@@ -103,7 +99,6 @@ public class App {
     }
 }
 ```
-
 ```java
 // filtered="true"
 package edu.poniperro;
@@ -114,7 +109,6 @@ public class App {
     }
 }
 ```
-
 Last but not least, the *includes* tag. In this tag we can specify specific files we want to copy every time we use the archetype. I used a generic syntax to copy every java file present.
 ```xml
 <include>**/*.java</include>
@@ -130,8 +124,8 @@ archetype-resources/
 	|   `-- java/
 	|       `-- App.java
 	`-- test/
-        `-- java/
-            `-- AppTest.java
+            `-- java/
+                `-- AppTest.java
 ```
 Now this template is special because we can access parameters such as the groupId, attributeId, package, etc... that we will provide to the archetype when we will use it.  
 To access this properties use a dollar and curly braces:
@@ -140,7 +134,7 @@ ${attributeId}
 ```
 If filtered is set to true this parameters are accessible to all files (java, xml, etc). If filtered is false only the *pom.xml* will have access to this properties.
 ## Template pom.xml
-Now, addressing the [elephant in the room](https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/gradle/gradle-plain.svg), you will need to customize this pom.xml as you like.  
+Now, addressing the [elephant in the room](https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/gradle/gradle-plain.svg), you will need to customise this pom.xml as you like.  
 [My example](src/main/resources/archetype-resources/pom.xml) has the very much needed JUnit dependency and the core maven plugins. The only added plugin is the JaCoCo one.  
 I also added some custom configuration for the jar manifest.  
 
@@ -162,13 +156,13 @@ A very basic example could look like this:
 ```
 
 ## Building/Packaging the archetype
-This is definitely the easiest part of the process. To create a *.jar* out of your archetype, just open a terminal in the root directory (where our original *pom.xml* is) and run the command:
+This is definetly the easyest part of the process. To create a *.jar* out of your archetype, just open a terminal in the root directory (where our original *pom.xml* is) and run the command:
 ```sh
 mvn install
 ```
 
 ## Create a project using the new Archetype
-Now I will illustrate how to create a new project using directly maven. Afaik *VSCode* should automatically acknowledge the new archetype.
+Now I will illustrate how to create a new project using directly maven. Afaik *VSCode* should automatically aknowledge the new archetype.
 
 To create a new project with the archetype use the following command:
 ```sh
