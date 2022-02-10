@@ -4,6 +4,7 @@ Checks all the basic boxes:
  - [X] Configure directory structure
  - [X] JaCoCo and JUnit  
  - [X] jar manifest
+ - [X] Dockerfile
 
 ## The Basics
 The first thing to know it's the basic structure and files we will need.  
