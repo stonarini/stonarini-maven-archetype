@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>${artifactId}</name>
-    <url>https://www.github.com/stonarini/${artifactId}</url>
+    <url>https://www.github.com/stonarini/${name}</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
