@@ -1,9 +1,15 @@
 <archetype-descriptor xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="stonarini-archetype">
+
     <requiredProperties>
         <requiredProperty key="gitignore">
             <defaultValue>.gitignore</defaultValue>
         </requiredProperty>
+        <requiredProperty key="name"></requiredProperty>
+        <requiredProperty key="mantainer">
+            <defaultValue>stonarini@cifpfbmoll.eu</defaultValue>
+        </requiredProperty>
     </requiredProperties>
+
     <fileSets>
         <fileSet filtered="true" packaged="true">
             <directory>src/main/java</directory>
@@ -17,10 +23,11 @@
                 <include>**/*.java</include>
             </includes>
         </fileSet>
-        <fileSet>
+        <fileSet filtered="true">
             <directory></directory>
             <includes>
                 <include>__gitignore__</include>
+                <include>Dockerfile</include>
             </includes>
         </fileSet>
     </fileSets>
