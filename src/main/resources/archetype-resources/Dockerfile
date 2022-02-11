@@ -1,8 +1,12 @@
 ## BUILD
 FROM maven:3.8.4-openjdk-11-slim AS build
 
-COPY src /home/app/src
-COPY pom.xml /home/app
+WORKDIR /home/app
+
+COPY src src
+COPY pom.xml pseudoPom.xml
+RUN awk 'BEGIN {!p} p <=1|| p >=4 {print;} /plugin>/ {p++;}' pseudoPom.xml > pom.xml
+
 RUN mvn -f /home/app/pom.xml clean package
 
 ## PACKAGE
