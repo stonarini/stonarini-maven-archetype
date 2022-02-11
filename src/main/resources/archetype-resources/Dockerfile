@@ -7,7 +7,7 @@ COPY src src
 COPY pom.xml pseudoPom.xml
 RUN awk 'BEGIN {!p} p <=1|| p >=4 {print;} /plugin>/ {p++;}' pseudoPom.xml > pom.xml
 
-RUN mvn -f /home/app/pom.xml clean package
+RUN mvn -f /home/app/pom.xml clean package -q
 
 ## PACKAGE
 FROM openjdk:11.0-jre-slim-buster
