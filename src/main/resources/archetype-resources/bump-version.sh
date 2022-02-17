@@ -17,8 +17,5 @@ if [ "$REPLY" != "y" ]; then
 	exit 1
 fi
 
-sed -e "/<version>.*/{s//<version>"${NEWVERSION}"<\/version>/;:a" -e '$!N;$!ba' -e '}' pom.xml > lpom.xml
-mv lpom.xml pom.xml
-sed -e "/version.*/{s//version="${NEWVERSION}"/;:a" -e '$!N;$!ba' -e '}' Dockerfile > DockerFile
-sed -e "/-${OLDVERSION}/{s//-${NEWVERSION}/;:a" -e '$!N;$!ba' -e '}' DockerFile > Dockerfile
-rm -f DockerFile
+sed -i -e "/<version>.*/{s//<version>"${NEWVERSION}"<\/version>/;:a" -e '$!N;$!ba' -e '}' pom.xml
+sed -i -e "/${OLDVERSION}/s//${NEWVERSION}/g" Dockerfile
