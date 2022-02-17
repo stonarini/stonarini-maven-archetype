@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>${artifactId}</name>
-    <url>https://www.github.com/stonarini/${name}</url>
+    <url>https://www.github.com/stonarini/${artifactId}</url>
 
     <properties>
         <!-- FIXME change it to the project's main class -->
@@ -23,7 +23,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -56,42 +56,15 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- CUSTOM PLUGIN! Install from https://github.com/stonarini/docker-maven-plugin -->
-            <plugin>
-                <groupId>edu.poniperro</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0</version>
-                <configuration>
-                    <containerName>${artifactId}</containerName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>prune-containers</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>prune</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>build-container</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>run-container</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
         <pluginManagement>
             <!-- lock down plugins versions to avoid using Maven defaults -->
             <plugins>
+                <!-- Version control plugin -->
+                <plugin>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
                 <!-- clean lifecycle -->
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
