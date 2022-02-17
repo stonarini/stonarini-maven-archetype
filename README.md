@@ -1,5 +1,5 @@
 # stonarini-archetype
-Template/Tutorial to create a custom archetype for Maven. 
+Template/Tutorial to create a custom archetype for Maven.   
 Features: 
  - [X] Configure directory structure
  - [X] JaCoCo and JUnit  
