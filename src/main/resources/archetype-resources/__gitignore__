@@ -3,3 +3,21 @@ target/
 
 # VSCode
 .vscode/
+
+# IntelliJ
+out/
+.idea/
+
+# Eclipse
+bin/
+tmp/
+
+# Other
+*~
+*.iml
+*.eml
+.project
+.settings
+.classpath
+.springBeans
+nb-configuration.xml
