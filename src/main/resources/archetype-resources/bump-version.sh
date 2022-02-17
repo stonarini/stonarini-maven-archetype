@@ -10,8 +10,6 @@ fi
 echo "Version will be set as: ${NEWVERSION}"
 read -p "Continue? [y/n]: " REPLY
 
-echo $REPLY
-
 if [ "$REPLY" != "y" ]; then
 	echo "Version not changed"
 	exit 1
