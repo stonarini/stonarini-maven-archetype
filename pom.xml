@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.poniperro</groupId>
-    <artifactId>stonarini-archetype</artifactId>
-    <version>1.2.1</version>
+    <artifactId>stonarini-maven-archetype</artifactId>
+    <version>1.3</version>
     <packaging>maven-archetype</packaging>
 
     <build>
