@@ -1,4 +1,4 @@
-# stonarini-archetype
+# stonarini-maven-archetype
 Template/Tutorial to create a custom archetype for Maven.   
 Features: 
  - [X] Configure directory structure
