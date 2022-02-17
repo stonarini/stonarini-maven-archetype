@@ -2,7 +2,7 @@ package ${package};
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello, David!");
+        System.out.println("Hello, There!");
     }
     
 }
