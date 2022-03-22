@@ -42,7 +42,7 @@
 
     <build>
         <plugins>
-            <!-- ############ JavaCodeCoverage ############ -->
+            <!-- JavaCodeCoverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -68,7 +68,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- ############ Maven version => 3.2.5 Required ############ -->
+            <!-- Maven version => 3.2.5 Required -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -93,18 +93,18 @@
                 </executions>
             </plugin>
             <!-- Lock Down Plugins Versions To Avoid Using Maven Defaults -->
-            <!-- ############ Project Version Control Plugin ############ -->
+            <!-- Project Version Control Plugin -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.10.0</version>
             </plugin>
-            <!-- ############ Clean Lifecycle ############ -->
+            <!-- Clean Lifecycle -->
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.1.0</version>
             </plugin>
-            <!-- ############ Default Lifecycle, Jar Packaging ############ -->
+            <!-- Default Lifecycle, Jar Packaging -->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.2.0</version>
@@ -120,7 +120,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
             </plugin>
-            <!-- ############ Jar Packaging ############ -->
+            <!-- Jar Packaging -->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.2</version>
@@ -143,7 +143,7 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>3.0.0-M2</version>
             </plugin>
-            <!-- ############ Site Lifecycle ############ -->
+            <!-- Site Lifecycle -->
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.11.0</version>

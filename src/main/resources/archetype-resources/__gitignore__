@@ -1,5 +1,5 @@
 ##############################
-## Java
+# Java
 ##############################
 .mtj.tmp/
 *.class
@@ -16,7 +16,7 @@ hs_err_pid*
 replay_pid*
 
 ##############################
-## Maven
+# Maven
 ##############################
 target/
 pom.xml.tag
@@ -31,7 +31,7 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 ##############################
-## Gradle
+# Gradle
 ##############################
 bin/
 build/
@@ -41,7 +41,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 
 ##############################
-## IntelliJ
+# IntelliJ
 ##############################
 out/
 .idea/
@@ -51,7 +51,7 @@ out/
 *.iws
 
 ##############################
-## Eclipse
+# Eclipse
 ##############################
 .settings/
 bin/
@@ -68,7 +68,7 @@ local.properties
 .factorypath
 
 ##############################
-## NetBeans
+# NetBeans
 ##############################
 nbproject/private/
 build/
@@ -79,40 +79,40 @@ nbactions.xml
 nb-configuration.xml
 
 ##############################
-## Visual Studio Code
+# Visual Studio Code
 ##############################
 .vscode/
 .code-workspace
 
 ##############################
-## OS X
+# OS X
 ##############################
 .DS_Store
 
 ##############################
-## Vim
+# Vim
 ##############################
 *.swo
 
 ##############################
-## patch
+# patch
 ##############################
 *.orig
 *.rej
 
 ##############################
-## Environment
+# Environment
 ##############################
 .env
 
 ##############################
-## Quarkus
+# Quarkus
 ##############################
 settings.xml
 quarkus.log
 
 ##############################
-## Other
+# Other
 ##############################
 *~
 *.eml
