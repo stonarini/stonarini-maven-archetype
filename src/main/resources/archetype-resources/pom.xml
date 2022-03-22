@@ -14,10 +14,16 @@
     <properties>
         <!-- FIXME change it to the project's main class -->
         <main.class>App</main.class>
+        <main.class.path>${package}</main.class.path>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
+
+    <organization>
+        <name>CIFP Francesc De Borja Moll</name>
+        <url>https://www.cifpfbmoll.eu</url>
+    </organization>
 
     <dependencies>
         <dependency>
@@ -26,11 +32,17 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.22.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- JavaCodeCoverage -->
+            <!-- ############ JavaCodeCoverage ############ -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -38,7 +50,7 @@
                 <configuration>
                     <excludes>
                         <!-- Exclude main class from coverage report -->
-                        <exclude>**/${main.class}.class</exclude>
+                        <exclude>**/*${main.class}.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -56,69 +68,90 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- ############ Maven version => 3.2.5 Required ############ -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.2.5</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>11</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Lock Down Plugins Versions To Avoid Using Maven Defaults -->
+            <!-- ############ Project Version Control Plugin ############ -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.10.0</version>
+            </plugin>
+            <!-- ############ Clean Lifecycle ############ -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+            <!-- ############ Default Lifecycle, Jar Packaging ############ -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+            <!-- ############ Jar Packaging ############ -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${main.class.path}.${main.class}</mainClass>
+                            <!-- https://maven.apache.org/shared/maven-archiver/examples/manifest.html -->
+                            <!-- addDefaultImplementationEntries bool -->
+                            <!-- addDefaultSpecificationEntries bool -->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>3.0.0-M1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M2</version>
+            </plugin>
+            <!-- ############ Site Lifecycle ############ -->
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.2.2</version>
+            </plugin>
         </plugins>
-        <pluginManagement>
-            <!-- lock down plugins versions to avoid using Maven defaults -->
-            <plugins>
-                <!-- Version control plugin -->
-                <plugin>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.7</version>
-                </plugin>
-                <!-- clean lifecycle -->
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <!-- default lifecycle, jar packaging -->
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                    <configuration>
-                        <release>11</release>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <plugin>
-                    <!-- jar packaging -->
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <mainClass>${package}.${main.class}</mainClass>
-                                <!-- https://maven.apache.org/shared/maven-archiver/examples/manifest.html -->
-                                <!-- addDefaultImplementationEntries bool -->
-                                <!-- addDefaultSpecificationEntries bool -->
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                </plugin>
-                <!-- site lifecycle -->
-                <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
