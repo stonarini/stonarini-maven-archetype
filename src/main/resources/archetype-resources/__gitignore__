@@ -1,23 +1,119 @@
-# Maven
+##############################
+## Java
+##############################
+.mtj.tmp/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.log
+*.ctxt
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+##############################
+## Maven
+##############################
 target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+pom.xml.bak
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
-# VSCode
-.vscode/
+##############################
+## Gradle
+##############################
+bin/
+build/
+.gradle
+.gradletasknamecache
+gradle-app.setting
+!gradle-wrapper.jar
 
-# IntelliJ
+##############################
+## IntelliJ
+##############################
 out/
 .idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
 
-# Eclipse
+##############################
+## Eclipse
+##############################
+.settings/
 bin/
 tmp/
-
-# Other
-*~
-*.iml
-*.eml
-.project
-.settings
+.metadata
 .classpath
-.springBeans
+.project
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.factorypath
+
+##############################
+## NetBeans
+##############################
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
 nb-configuration.xml
+
+##############################
+## Visual Studio Code
+##############################
+.vscode/
+.code-workspace
+
+##############################
+## OS X
+##############################
+.DS_Store
+
+##############################
+## Vim
+##############################
+*.swo
+
+##############################
+## patch
+##############################
+*.orig
+*.rej
+
+##############################
+## Environment
+##############################
+.env
+
+##############################
+## Quarkus
+##############################
+settings.xml
+quarkus.log
+
+##############################
+## Other
+##############################
+*~
+*.eml
+.springBeans
